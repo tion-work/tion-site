@@ -16,6 +16,7 @@ const Post = defineDocumentType(() => ({
     },
     image: {
       type: "image",
+      required: true
     },
     publishedAt: {
       type: "date",

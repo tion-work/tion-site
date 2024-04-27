@@ -5,15 +5,17 @@ import React from "react";
 interface Props {
   link: string;
   name: string;
+  className?: string;
 }
 
-const Tag: React.FC<Props> = ({ link = "#", name }) => {
+const Tag: React.FC<Props> = ({ link = "#", name, className = "" }) => {
   return (
     <>
       <Link
         href={link}
         className={cx(
-          "inline-block py-3 px-10 bg-black text-white rounded-full capitalize font-semibold border-2 border-solid border-white hover:scale-105 transition-all ease-in-out duration-200"
+          "inline-block py-3 px-10 bg-black text-white rounded-full capitalize font-semibold border-2 border-solid border-white hover:scale-105 transition-all ease-in-out duration-200",
+          className
         )}
       >
         {name}
