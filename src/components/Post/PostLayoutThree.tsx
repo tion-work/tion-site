@@ -10,7 +10,7 @@ interface Props {
 
 const PostLayoutThree: React.FC<Props> = ({ post }) => {
   return (
-    <div className=" group flex flex-col items-center text-black">
+    <div className="group flex flex-col items-center text-black">
       <Link href={post.url} className="h-full rounded-xl overflow-hidden">
         <Image
           src={post.image.filePath.replace("../public", "")}
