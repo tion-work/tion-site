@@ -1,6 +1,7 @@
 // contentlayer.config.js
 
 import { makeSource, defineDocumentType } from "@contentlayer/source-files";
+import readingTime from "reading-time";
 
 const Post = defineDocumentType(() => ({
   name: "Post",
@@ -16,7 +17,7 @@ const Post = defineDocumentType(() => ({
     },
     image: {
       type: "image",
-      required: true
+      required: true,
     },
     publishedAt: {
       type: "date",
@@ -37,13 +38,17 @@ const Post = defineDocumentType(() => ({
     tags: {
       type: "list",
       of: { type: "string" },
-      required: true
+      required: true,
     },
   },
   computedFields: {
     url: {
       type: "string",
       resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+    },
+    readingTime: {
+      type: "json",
+      resolve: (doc) => readingTime(doc.body.raw),
     },
   },
 }));
