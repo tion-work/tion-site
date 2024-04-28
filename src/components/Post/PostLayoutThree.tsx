@@ -8,13 +8,10 @@ interface Props {
   post: Post;
 }
 
-const PostLayoutTwo: React.FC<Props> = ({ post }) => {
+const PostLayoutThree: React.FC<Props> = ({ post }) => {
   return (
-    <div className="group grid grid-cols-12 gap-4 items-center text-black">
-      <Link
-        href={post.url}
-        className="col-span-4 h-full rounded-xl overflow-hidden"
-      >
+    <div className=" group flex flex-col items-center text-black">
+      <Link href={post.url} className="h-full rounded-xl overflow-hidden">
         <Image
           src={post.image.filePath.replace("../public", "")}
           alt={post.title}
@@ -22,11 +19,11 @@ const PostLayoutTwo: React.FC<Props> = ({ post }) => {
           blurDataURL={post.image.blurhashDataUrl}
           width={post.image.width}
           height={post.image.height}
-          className="w-full h-full object-center object-cover aspect-square group-hover:scale-105 transition-all ease-in-out duration-300"
+          className="w-full h-full object-center object-cover aspect-[4/3] group-hover:scale-105 transition-all ease-in-out duration-300"
         ></Image>
       </Link>
 
-      <div className="w-full col-span-8">
+      <div className="w-full flex flex-col mt-4">
         <span className="uppercase text-violet-500 font-semibold text-sm">
           {post.tags[0]}
         </span>
@@ -44,4 +41,4 @@ const PostLayoutTwo: React.FC<Props> = ({ post }) => {
     </div>
   );
 };
-export default PostLayoutTwo;
+export default PostLayoutThree;
