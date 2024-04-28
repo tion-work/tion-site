@@ -4,7 +4,7 @@ import React from "react";
 
 interface Props {
   link: string;
-  name: string;
+  name?: string;
   className?: string;
 }
 

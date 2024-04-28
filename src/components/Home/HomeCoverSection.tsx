@@ -1,4 +1,4 @@
-import { Post } from "@/.contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import { sortPosts } from "@/src/utils";
 import Image from "next/image";
 import Link from "next/link";

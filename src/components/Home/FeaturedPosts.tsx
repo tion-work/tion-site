@@ -1,4 +1,4 @@
-import { Post } from "@/.contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import { sortPosts } from "@/src/utils";
 import React from "react";
 import PostLayoutOne from "../Post/PostLayoutOne";
