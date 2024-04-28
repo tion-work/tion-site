@@ -1,5 +1,6 @@
 import Tag from "@/src/components/Elements/Tag";
 import PostDetails from "@/src/components/Post/PostDetails";
+import RenderMdx from "@/src/components/Post/RenderMdx";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 
@@ -33,6 +34,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </div>
 
         <PostDetails post={post} slug={params.slug} />
+
+        <div className=" grid grid-cols-12 gap-16 mt-8 px-10">
+          <div className=" col-span-4">Toc</div>
+          <RenderMdx post={post} />
+        </div>
       </article>
     );
   } else {
