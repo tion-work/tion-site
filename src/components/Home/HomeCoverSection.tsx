@@ -1,5 +1,6 @@
 import { Post } from "contentlayer/generated";
 import { sortPosts } from "@/src/utils";
+import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -25,7 +26,7 @@ const HomeCoverSection: React.FC<Props> = ({ posts }) => {
           className="w-full h-full object-center object-cover rounded-3xl -z-10"
         ></Image>
         <div className="w-3/4 p-16 flex flex-col items-start justify-center z-0 text-white">
-          <Tag link={`categories/${post.tags[0]}`} name={post.tags[0]}></Tag>
+          <Tag link={`categories/${slug(post.tags[0])}`} name={post.tags[0]}></Tag>
           <Link href={post.url} className="mt-6">
             <h1 className="font-bold capitalize text-4xl">
               <span className="bg-gradient-to-r from-violet-500 to-violet-500 bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">{post.title}</span>

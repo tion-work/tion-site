@@ -1,4 +1,5 @@
 import { Post } from "contentlayer/generated";
+import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -23,7 +24,7 @@ const PostLayoutOne: React.FC<Props> = ({ post }) => {
       ></Image>
       <div className="w-full absolute bottom-0 p-10 z-20">
         <Tag
-          link={`categories/${post.tags[0]}`}
+          link={`categories/${slug(post.tags[0])}`}
           name={post.tags[0]}
           className="px-6 text-sm py-2 !border"
         />
