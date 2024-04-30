@@ -4,6 +4,12 @@ import RenderMdx from "@/src/components/Post/RenderMdx";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 
+interface Heading {
+  level: string;
+  text: string;
+  slug?: string;
+}
+
 export default function PostPage({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (post) {
@@ -36,7 +42,42 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <PostDetails post={post} slug={params.slug} />
 
         <div className=" grid grid-cols-12 gap-16 mt-8 px-10">
-          <div className=" col-span-4">Toc</div>
+          <div className=" col-span-4">
+            <details
+              className="border-[1px] border-solid border-black dark:border-white text-black dark:text-white rounded-lg p-4 sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto"
+              open
+            >
+              <summary className="text-lg font-semibold capitalize cursor-pointer">
+                Table Of Content
+              </summary>
+              <ul className="mt-4 font-in text-base">
+                {post.toc.map((heading: Heading) => {
+                  return (
+                    <li key={`#${heading.slug}`} className="py-1">
+                      <a
+                        href={`#${heading.slug}`}
+                        data-level={heading.level}
+                        className="data-[level=two]:pl-0 data-[level=two]:pt-2
+                                       data-[level=two]:border-t border-solid border-black/40
+                                       data-[level=three]:pl-4
+                                       sm:data-[level=three]:pl-6
+                                       flex items-center justify-start
+                                       "
+                      >
+                        {heading.level === "three" ? (
+                          <span className="flex w-1 h-1 rounded-full bg-black dark:bg-white mr-2">
+                            &nbsp;
+                          </span>
+                        ) : null}
+
+                        <span className="hover:underline">{heading.text}</span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          </div>
           <RenderMdx post={post} />
         </div>
       </article>
