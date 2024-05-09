@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import character from "@/public/profile-img.png";
+import character from "@/public/character.png";
 
 const AboutCoverSection = () => {
   return (
