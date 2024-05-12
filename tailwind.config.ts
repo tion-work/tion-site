@@ -17,6 +17,15 @@ const config: Config = {
         mr: ["var(--font-mr)"],
         in: ["var(--font-in)"],
       },
+      animation: {
+        roll: "roll 24s linear infinite",
+      },
+      keyframes: {
+        roll: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

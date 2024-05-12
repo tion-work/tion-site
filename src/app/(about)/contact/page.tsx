@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import ContactForm from "@/src/components/Contact/ContactForm";
 import LottieAnimation from "@/src/components/Contact/LottieAnimation";
 import React from "react";
