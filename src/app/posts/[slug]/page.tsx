@@ -49,8 +49,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       <PostDetails post={post} slug={params.slug} />
 
-      <div className=" grid grid-cols-12 gap-16 mt-8 px-10">
-        <div className=" col-span-4">
+      <div className="grid grid-cols-12 gap-16 mt-8 px-10">
+        <div className="col-span-4">
           <details
             className="border-[1px] border-solid border-black dark:border-white text-black dark:text-white rounded-lg p-4 sticky top-6 max-h-[80vh] overflow-hidden overflow-y-auto"
             open

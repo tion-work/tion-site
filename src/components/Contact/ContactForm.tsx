@@ -50,7 +50,7 @@ export default function ContactForm() {
         placeholder="My project is about..."
         rows={3}
         {...register("projectDetails", {})}
-        className=" w-full outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-lg border-b border-gray-500 
+        className="w-full outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-lg border-b border-gray-500 
         focus:border-gray-500 bg-transparent"
       />
       <input
