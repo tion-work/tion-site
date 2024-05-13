@@ -1,9 +1,11 @@
 import Tag from "@/src/components/Elements/Tag";
 import PostDetails from "@/src/components/Post/PostDetails";
 import RenderMdx from "@/src/components/Post/RenderMdx";
+import { siteMetadata } from "@/src/utils/siteMetaData";
 import { allPosts } from "contentlayer/generated";
 import { slug } from "github-slugger";
 import Image from "next/image";
+import { describe } from "node:test";
 
 interface Heading {
   level: string;
@@ -13,6 +15,56 @@ interface Heading {
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  if (!post) {
+    return;
+  }
+
+  const publishedAt = new Date(post.publishedAt).toISOString();
+  const updatedAt = new Date(post.updatedAt || post.publishedAt).toISOString();
+  let imageList = [siteMetadata.socialBanner];
+  if (post.image) {
+    imageList = [
+      siteMetadata.siteUrl + post.image.filePath.replace("../public", ""),
+    ];
+  }
+  const ogImages = imageList.map((img) => {
+    return { url: img.includes("http") ? img : siteMetadata.siteUrl + img };
+  });
+
+  const authors = post?.author ? [post.author] : siteMetadata.author;
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: siteMetadata.siteUrl + post.url,
+      siteName: siteMetadata.title,
+      locale: "en_US",
+      type: "article",
+      publishedTime: publishedAt,
+      modifiedTime: updatedAt,
+      images: [ogImages],
+      authors: authors.length > 0 ? authors : [siteMetadata.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      // siteId: "1467726470533754880",
+      // creator: "@nextjs",
+      // creatorId: "1467726470533754880",
+      images: ogImages, // Must be an absolute URL
+    },
+  };
 }
 
 export default function PostPage({ params }: { params: { slug: string } }) {

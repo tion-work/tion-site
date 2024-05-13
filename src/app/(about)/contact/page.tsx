@@ -1,7 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import ContactForm from "@/src/components/Contact/ContactForm";
 import LottieAnimation from "@/src/components/Contact/LottieAnimation";
+import { siteMetadata } from "@/src/utils/siteMetaData";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: `Contact me through this form or email me at ${siteMetadata.email}`,
+};
 
 const Contact = () => {
   return (
