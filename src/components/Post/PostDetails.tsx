@@ -12,7 +12,7 @@ interface Props {
 
 const PostDetails: React.FC<Props> = ({ post, slug: postSlug }) => {
   return (
-    <div className="px-10 py-2 bg-violet-500 text-white flex items-center justify-around flex-wrap text-xl font-medium mx-10 rounded-lg">
+    <div className="px-10 py-2 bg-accent dark:bg-accentDark text-light flex items-center justify-around flex-wrap text-xl font-medium mx-10 rounded-lg">
       <time className="m-3">
         {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
       </time>

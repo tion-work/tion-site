@@ -5,8 +5,8 @@ import character from "@/public/character.png";
 
 const AboutCoverSection = () => {
   return (
-    <section className="w-full h-[75vh] broder-b-2 border-solid border-black flex flex-row items-center justify-center text-black">
-      <div className="w-1/2 h-full border-r-2 border-solid border-black flex justify-center">
+    <section className="w-full h-[75vh] broder-b-2 border-solid border-dark flex flex-row items-center justify-center text-dark">
+      <div className="w-1/2 h-full border-r-2 border-solid border-dark flex justify-center">
         <Image
           src={character}
           alt={"tion japan"}

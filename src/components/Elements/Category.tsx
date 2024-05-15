@@ -19,11 +19,11 @@ const Category: React.FC<Props> = ({
     <Link
       href={link}
       className={cx(
-        "inline-block py-1.5 md:py-2 px-6 md:px-10 rounded-full border-2 border-solid border-black dark:border-white hover:scale-105 transition-all ease duration-200 m-2",
+        "inline-block py-1.5 md:py-2 px-6 md:px-10 rounded-full border-2 border-solid border-dark dark:border-light hover:scale-105 transition-all ease duration-200 m-2",
         className,
         active
-          ? "bg-black text-white dark:bg-white dark:text-black"
-          : "bg-white text-black dark:bg-black dark:text-white"
+          ? "bg-dark text-light dark:bg-light dark:text-dark"
+          : "bg-light text-dark dark:bg-dark dark:text-light"
       )}
     >
       #{name}

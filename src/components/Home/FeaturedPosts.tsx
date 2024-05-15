@@ -12,7 +12,7 @@ const FeaturedPosts: React.FC<Props> = ({ posts }) => {
   const sortedPosts = sortPosts(posts);
   return (
     <section className="w-full mt-32 px-32 flex flex-col items-center justify-center">
-      <h2 className="w-full inline-block font-bold capitalize text-4xl">
+      <h2 className="w-full inline-block font-bold capitalize text-4xl text-dark dark:text-light">
         FeaturedPosts
       </h2>
       <div className="grid grid-cols-2 grid-rows-2 gap-6 mt-16">

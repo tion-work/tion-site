@@ -13,12 +13,12 @@ const RecentPosts: React.FC<Props> = ({ posts }) => {
   return (
     <section className="w-full mt-32 px-32 flex flex-col items-center justify-center">
       <div className="w-full flex justify-between">
-        <h2 className="inline-block font-bold capitalize text-4xl">
+        <h2 className="inline-block font-bold capitalize text-4xl text-dark dark:text-light">
           RecentPosts
         </h2>
         <Link
           href={"/categories/all"}
-          className="inline-block font-medium text-violet-500 underline underline-offset-2 text-lg"
+          className="inline-block font-medium text-accent dark:text-accentDark underline underline-offset-2 text-lg"
         >
           view all
         </Link>

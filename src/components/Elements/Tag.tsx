@@ -13,7 +13,7 @@ const Tag: React.FC<Props> = ({ link = "#", name, className = "" }) => {
     <Link
       href={link}
       className={cx(
-        "inline-block py-3 px-10 bg-black text-white rounded-full capitalize font-semibold border-2 border-solid border-white hover:scale-105 transition-all ease-in-out duration-200",
+        "inline-block py-3 px-10 bg-dark text-light rounded-full capitalize font-semibold border-2 border-solid border-light hover:scale-105 transition-all ease-in-out duration-200",
         className
       )}
     >

@@ -56,7 +56,7 @@ export default function ContactForm() {
       <input
         type="submit"
         value="send request"
-        className="mt-8 font-medium inline-block capitalize text-lg sm:text-xl py-2 sm:py-3 px-6 sm:px-8 border-2 border-solid border-black dark:border-white rounded cursor-pointer"
+        className="mt-8 font-medium inline-block capitalize text-lg sm:text-xl py-2 sm:py-3 px-6 sm:px-8 border-2 border-solid border-dark dark:border-light rounded cursor-pointer"
       />
     </form>
   );
